@@ -33,4 +33,14 @@ function displayImages(data) {
 }
 document.addEventListener("DOMContentLoaded", () => {
   getWorks();
+  getCategories();
 });
+
+function getCategories() {
+  return fetch(`${API_BASE_URL}/categories`)
+    .then((Response) => Response.json())
+    .then((data) => {
+      console.log(data);
+      return data;
+    });
+}
