@@ -16,7 +16,7 @@ function getWorks() {
   function displayImages(Objets) {
     
     const imageContainer = document.getElementById('figure');
-    Array.forEach(Objets => {
+    works.forEach(Objets => {
       const imgElement = document.createElement('img');
       imgElement.src = work.imageUrl;
       imgElement.alt = work.title;
@@ -29,5 +29,5 @@ function getWorks() {
       });
 
 
-getWorks ()
+
 
