@@ -13,10 +13,10 @@ function getWorks() {
   
     
   } 
-  function displayImages(Objets) {
+  function displayImages(data) {
     
     const imageContainer = document.getElementById('figure');
-    works.forEach(Objets => {
+    data.forEach(data => {
       const imgElement = document.createElement('img');
       imgElement.src = work.imageUrl;
       imgElement.alt = work.title;
