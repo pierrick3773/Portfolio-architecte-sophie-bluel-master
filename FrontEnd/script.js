@@ -10,7 +10,6 @@ function getWorks() {
       return data;
     })
     .then((data) => {
-      // appeler une function de display images
       displayImages(data);
     });
 }
@@ -21,14 +20,17 @@ function displayImages(data) {
     const imgDiv = document.createElement("figure");
     const imgElement = document.createElement("img");
     const imgCap = document.createElement(`figcaption`);
+    const categoryID = document.createElement(`categroyId`);
     imgElement.src = works.imageUrl;
     imgElement.alt = works.title;
     imgCap.textContent = works.title;
+    categoryID.id = works.categoryId;
     console.log(`figcaption`);
     console.log(imageContainer);
     imageContainer.appendChild(imgDiv);
     imgDiv.appendChild(imgElement);
     imgDiv.appendChild(imgCap);
+    imgDiv.appendChild(categoryID);
   }
 }
 document.addEventListener("DOMContentLoaded", () => {
@@ -59,3 +61,5 @@ function displayButton(data) {
     buttonContainer.appendChild(filterButton);
   }
 }
+const filteredArray = array.filter((categoryId) => 2);
+console.log(filteredArray);
