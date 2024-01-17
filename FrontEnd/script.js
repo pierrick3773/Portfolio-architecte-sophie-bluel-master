@@ -42,5 +42,20 @@ function getCategories() {
     .then((data) => {
       console.log(data);
       return data;
+    })
+    .then((data) => {
+      // appeler une function de display button
+      displayButton(data);
     });
+}
+function displayButton(data) {
+  const buttonContainer = document.querySelector(`.buttonCat`);
+  console.log(buttonContainer);
+  for (const categories of data) {
+    const filterButton = document.createElement(`button`);
+    filterButton.id = categories.id;
+    filterButton.textContent = categories.name;
+    filterButton.className = `filter filter_selec`;
+    buttonContainer.appendChild(filterButton);
+  }
 }
