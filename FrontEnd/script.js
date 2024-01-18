@@ -61,10 +61,6 @@ function displayButton(data) {
   const buttonContainer = document.querySelector(`.buttonCat`);
   console.log(buttonContainer);
 
-  // test const de filtre
-  const filteredArray = data.filter((categoryid) => 2);
-  console.log(filteredArray);
-
   for (const categories of data) {
     const filterButton = document.createElement(`button`);
     filterButton.id = categories.id;
