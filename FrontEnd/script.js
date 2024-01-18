@@ -13,10 +13,16 @@ function getWorks() {
       displayImages(data);
     });
 }
+
 function displayImages(data) {
   const imageContainer = document.querySelector(`.gallery`);
   console.log(imageContainer);
-  for (const works of data) {
+
+  // test const de filtre
+  const filteredArray = data.filter((work) => work.categoryId == 2);
+  console.log(filteredArray);
+
+  for (const works of filteredArray) {
     const imgDiv = document.createElement("figure");
     const imgElement = document.createElement("img");
     const imgCap = document.createElement(`figcaption`);
@@ -50,9 +56,15 @@ function getCategories() {
       displayButton(data);
     });
 }
+
 function displayButton(data) {
   const buttonContainer = document.querySelector(`.buttonCat`);
   console.log(buttonContainer);
+
+  // test const de filtre
+  const filteredArray = data.filter((categoryid) => 2);
+  console.log(filteredArray);
+
   for (const categories of data) {
     const filterButton = document.createElement(`button`);
     filterButton.id = categories.id;
@@ -61,5 +73,3 @@ function displayButton(data) {
     buttonContainer.appendChild(filterButton);
   }
 }
-const filteredArray = array.filter((categoryId) => 2);
-console.log(filteredArray);
