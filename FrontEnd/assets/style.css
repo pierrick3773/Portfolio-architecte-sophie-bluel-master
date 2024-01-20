@@ -262,7 +262,7 @@ footer nav ul {
   justify-content: flex-end;
   margin: 2em;
 }
-
+/* categories */
 #portfolio .buttonCat {
   display: flex;
   justify-content: center;
@@ -283,7 +283,21 @@ footer nav ul {
   padding: 6px;
   cursor: pointer;
 }
-
+/* button categories vert */
+.buttonCat button.selected {
+  background-color: #1d6154;
+  border-radius: 20px;
+  border: 1px solid #1d6154;
+  color: white;
+  font-family: Syne;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  padding: 6px;
+  cursor: pointer;
+}
+/* page log in */
 #logIn {
   width: 50%;
   margin: auto;

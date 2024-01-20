@@ -16,7 +16,7 @@ async function getAll() {
       return data;
     });
 
-  displayImages(works, category);
+  displayFilter(works, category);
 }
 
 function displayWorks(works) {
@@ -40,25 +40,42 @@ function displayWorks(works) {
     imgDiv.appendChild(categoryID);
   }
 }
-function displayImages(works, categories) {
+function displayFilter(works, categories) {
   displayWorks(works);
   const buttonContainer = document.querySelector(`.buttonCat`);
   console.log(buttonContainer);
+  let buttonTous = document.querySelector(`.filter`);
+  // buttonTous.className = `selected`;
+  buttonTous.addEventListener(`click`, () => {
+    //   const buttonTous = document.querySelector(`.selected`);
+    const galleryFilter = document.querySelector(`.gallery`);
+    galleryFilter.innerHTML = ``;
+    displayWorks(works);
+
+    // buttonTous.classList.add(`selected`);
+  });
 
   for (const category of categories) {
     const filterButton = document.createElement(`button`);
     filterButton.id = category.id;
     filterButton.textContent = category.name;
-    filterButton.className = `filter filter_selec`;
+    filterButton.className = `filter`;
     buttonContainer.appendChild(filterButton);
+
     filterButton.addEventListener(`click`, () => {
-      // test const de filtre
+      const buttonGreen = document.querySelector(`.selected`);
+
       const filteredArray = works.filter(
         (work) => work.categoryId == category.id
       );
       console.log(filteredArray);
       const galleryFilter = document.querySelector(`.gallery`);
+
       galleryFilter.innerHTML = ``;
+
+      buttonGreen.classList.remove(`selected`);
+      filterButton.classList.add(`selected`);
+
       displayWorks(filteredArray);
     });
   }
