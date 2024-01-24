@@ -14,8 +14,17 @@
     <link rel="stylesheet" href="./assets/style.css" />
 
     <script src="./script.js" defer></script>
+    <!-- <script src="./login.js" defer></script> -->
+    <script
+      src="https://kit.fontawesome.com/128c3f8990.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
+    <div class="edition">
+      <i class="fa-solid fa-pen-to-square"></i>
+      <p>Mode édition</p>
+    </div>
     <header>
       <h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
       <nav>
@@ -52,7 +61,15 @@
         </article>
       </section>
       <section id="portfolio">
-        <h2>Mes Projets</h2>
+        <section class="projet-modifier">
+          <h2>Mes Projets</h2>
+          <div class="fa-lien">
+            <i class="fa-solid fa-pen-to-square"></i>
+            <a href="modale post-delete">
+              <p class="mod">modifier</p>
+            </a>
+          </div>
+        </section>
         <div class="buttonCat">
           <button class="selected" id="tous">Tous</button>
         </div>

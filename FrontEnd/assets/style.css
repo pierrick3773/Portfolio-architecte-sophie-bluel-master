@@ -202,7 +202,6 @@ li:hover {
 }
 #portfolio h2 {
   text-align: center;
-  margin-bottom: 1em;
 }
 .gallery {
   width: 100%;
@@ -268,6 +267,7 @@ footer nav ul {
   justify-content: center;
   gap: 10px;
   padding-bottom: 50px;
+  padding-top: 50px;
 }
 
 .buttonCat button {
@@ -362,4 +362,69 @@ footer nav ul {
   line-height: normal;
   text-decoration-line: underline;
   margin-bottom: 70px;
+}
+
+/* mode édition */
+.edition {
+  background-color: black;
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  align-items: center;
+  display: none;
+}
+
+.edition p {
+  color: white;
+  font-family: "Work Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.edition .fa-solid {
+  color: white;
+  width: 15.58px;
+  height: 15.58px;
+  flex-shrink: 0;
+}
+/* lien modifier */
+.projet-modifier {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px;
+}
+
+.projet-modifier h2 {
+  margin-right: 20px;
+}
+
+.projet-modifier .fa-lien {
+  display: flex;
+  display: none;
+  gap: 10px;
+}
+
+.projet-modifier .fa-lien .fa-solid {
+  color: black;
+  width: 15.58px;
+  height: 15.58px;
+}
+.projet-modifier .fa-lien a {
+  text-decoration: none;
+}
+
+.projet-modifier .fa-lien a .mod {
+  color: #000;
+  text-align: center;
+  font-family: "Work Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
