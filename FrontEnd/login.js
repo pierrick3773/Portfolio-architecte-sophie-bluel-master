@@ -21,8 +21,13 @@ async function logToken(data) {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
-  }).then((res) => res.json());
-  console.log(result);
+  }).then((response) => {
+    if (response.ok != true) {
+      console.log("email ou mdp incorrect");
+    } else {
+      window.location.assign("./index.html");
+    }
+  });
 }
 buttonConnecter.addEventListener(`click`, () => {
   const data = logIn();
