@@ -16,16 +16,18 @@ function logIn() {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
   })
-    .then((data) => {
-      localStorage.setItem(`token`, data.token);
-      window.location.href = "index.html";
-    })
-    .then((response) => {
-      if (response.ok != true) {
-        console.log("email ou mdp incorrect");
+    .then((responseToken) => {
+      console.log("responseToken: ", responseToken);
+      if (responseToken.ok != true) {
+        alert("email ou mot de passe incorrect");
       } else {
-        window.location.href("./index.html");
+        window.location.href = "index.html";
       }
+      return responseToken.json();
+    })
+    .then((dataResponse) => {
+      console.log("dataResponse: ", dataResponse);
+      localStorage.setItem("token", dataResponse.token);
     });
 }
 
