@@ -11,24 +11,22 @@ function logIn() {
     email: email,
     password: password,
   };
-  async function logToken(data) {
-    const result = await fetch(`${API_BASE_URL}/users/login`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
+  fetch(`${API_BASE_URL}/users/login`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  })
+    .then((data) => {
+      localStorage.setItem(`token`, data.token);
+      window.location.href = "index.html";
     })
-      .then((data) => {
-        localStorage.setItem(`token`, data.token);
-        window.location.href = "index.html";
-      })
-      .then((response) => {
-        if (response.ok != true) {
-          console.log("email ou mdp incorrect");
-        } else {
-          window.location.href("./index.html");
-        }
-      });
-  }
+    .then((response) => {
+      if (response.ok != true) {
+        console.log("email ou mdp incorrect");
+      } else {
+        window.location.href("./index.html");
+      }
+    });
 }
 
 document
