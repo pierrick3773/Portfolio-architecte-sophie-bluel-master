@@ -2,34 +2,38 @@ console.log("hello world");
 const API_BASE_URL = "http://localhost:5678/api";
 console.log(API_BASE_URL);
 
-const buttonConnecter = document.querySelector(`.connect`);
-console.log(buttonConnecter);
-
 function logIn() {
-  const mail = document.getElementById(`email`).value;
-  const password = document.getElementById(`password`).value;
-  console.log(mail);
+  let email = document.querySelector(`#email`).value;
+  let password = document.querySelector(`#password`).value;
+  console.log(email);
   console.log(password);
-  return {
-    email: mail,
+  let data = {
+    email: email,
     password: password,
   };
+  async function logToken(data) {
+    const result = await fetch(`${API_BASE_URL}/users/login`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    })
+      .then((data) => {
+        localStorage.setItem(`token`, data.token);
+        window.location.href = "index.html";
+      })
+      .then((response) => {
+        if (response.ok != true) {
+          console.log("email ou mdp incorrect");
+        } else {
+          window.location.href("./index.html");
+        }
+      });
+  }
 }
 
-async function logToken(data) {
-  const result = await fetch(`${API_BASE_URL}/users/login`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data),
-  }).then((response) => {
-    if (response.ok != true) {
-      console.log("email ou mdp incorrect");
-    } else {
-      window.location.assign("./index.html");
-    }
+document
+  .querySelector(`#logIn form`)
+  .addEventListener(`submit`, function (event) {
+    event.preventDefault();
+    logIn();
   });
-}
-buttonConnecter.addEventListener(`click`, () => {
-  const data = logIn();
-  logToken(data);
-});
