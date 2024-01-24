@@ -15,9 +15,6 @@ function logIn() {
     password: password,
   };
 }
-const data = logIn();
-
-console.log(data);
 
 async function logToken(data) {
   const result = await fetch(`${API_BASE_URL}/users/login`, {
@@ -28,5 +25,6 @@ async function logToken(data) {
   console.log(result);
 }
 buttonConnecter.addEventListener(`click`, () => {
+  const data = logIn();
   logToken(data);
 });
