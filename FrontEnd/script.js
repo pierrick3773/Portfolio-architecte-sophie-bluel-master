@@ -85,3 +85,17 @@ function displayFilter(works, categories) {
     });
   }
 }
+// affichage mode edit
+let token = localStorage.getItem("token");
+const editHeader = document.querySelector(`.edition`);
+const editLink = document.querySelector(`.fa-lien`);
+function EditMode() {
+  if (token != null) {
+    editHeader.style.display = "flex";
+    editLink.style.display = "flex";
+    logStatus.innerHTML = "logout";
+  } else {
+    console.log("logout");
+  }
+}
+EditMode();
