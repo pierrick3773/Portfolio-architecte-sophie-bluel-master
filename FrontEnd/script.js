@@ -89,13 +89,20 @@ function displayFilter(works, categories) {
 let token = localStorage.getItem("token");
 const editHeader = document.querySelector(`.edition`);
 const editLink = document.querySelector(`.fa-lien`);
+const logStatus = document.querySelector(`.logStatus`);
 function EditMode() {
   if (token != null) {
     editHeader.style.display = "flex";
     editLink.style.display = "flex";
     logStatus.innerHTML = "logout";
   } else {
-    console.log("logout");
+    logOut();
   }
 }
 EditMode();
+function logOut() {
+  logStatus.innerHTML = "login";
+  localStorages.removeItem("token");
+  window.location.href = "index.html";
+}
+logStatus.addEventListener(click, logOut());
