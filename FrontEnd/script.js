@@ -89,9 +89,9 @@ function displayFilter(works, categories) {
 token = localStorage.getItem("token");
 const editHeader = document.querySelector(`.edition`);
 const editLink = document.querySelector(`.fa-lien`);
-const logStatus = document.querySelector(`.logStatus`);
-const logoutButton = document.querySelector(`.logOut`);
-const loginButton = document.querySelector(`.logStatus`);
+const logStatus = document.querySelector(`#log`);
+// const logoutButton = document.querySelector(`#log`);
+const loginButton = document.querySelector(`#log`);
 function EditMode() {
   if (token != null) {
     editHeader.style.display = "flex";
@@ -99,10 +99,10 @@ function EditMode() {
     logStatus.innerHTML = "logout";
     logStatus.classList.remove(`logStatus`);
     logStatus.classList.add(`logOut`);
-    const logoutButton = document.querySelector(`.logOut`);
-    logoutButton.addEventListener(`click`, () => {
-      logOut();
-    });
+    // const logoutButton = document.querySelector(`.logOut`);
+    // logoutButton.addEventListener(`click`, () => {
+    //   logOut();
+    // });
   } else {
     logOut();
   }
@@ -110,10 +110,10 @@ function EditMode() {
 EditMode();
 // logout et renvoi vers la page index initiale
 function logOut() {
+  logStatus.classList.add(`logStatus`);
   logStatus.innerHTML = "login";
   localStorage.removeItem("token");
-  window.location.href = "index.html";
-  logStatus.classList.add(`logStatus`);
+  // window.location.href = "index.html";
 }
 
 // loginButton.addEventListener(`click`, logOut());
@@ -121,4 +121,12 @@ function logOut() {
 loginButton.addEventListener(`click`, () => {
   logStatus.classList.add(`logStatus`);
   window.location.href = "login.html";
+});
+const logoutButton = document.querySelector(`.logOut`);
+logoutButton.addEventListener(`click`, () => {
+  // logStatus.classList.add(`logOut`);
+  logStatus.innerHTML = "login";
+  localStorage.removeItem("token");
+  window.location.href = "index.html";
+  logStatus.classList.add(`logStatus`);
 });
