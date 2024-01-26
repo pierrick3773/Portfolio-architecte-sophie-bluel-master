@@ -86,23 +86,40 @@ function displayFilter(works, categories) {
   }
 }
 // affichage mode edit
-let token = localStorage.getItem("token");
+token = localStorage.getItem("token");
 const editHeader = document.querySelector(`.edition`);
 const editLink = document.querySelector(`.fa-lien`);
 const logStatus = document.querySelector(`.logStatus`);
+const logoutButton = document.querySelector(`.logOut`);
+const loginButton = document.querySelector(`.logStatus`);
 function EditMode() {
   if (token != null) {
     editHeader.style.display = "flex";
     editLink.style.display = "flex";
     logStatus.innerHTML = "logout";
+    logStatus.classList.remove(`logStatus`);
+    logStatus.classList.add(`logOut`);
+    const logoutButton = document.querySelector(`.logOut`);
+    logoutButton.addEventListener(`click`, () => {
+      displayWorks();
+      window.location.href = "index.html";
+    });
   } else {
     logOut();
   }
 }
 EditMode();
+// logout et renvoi vers la page index initiale
 function logOut() {
   logStatus.innerHTML = "login";
-  localStorages.removeItem("token");
-  window.location.href = "index.html";
+  localStorage.removeItem("token");
+  // window.location.href = "index.html";
+  logStatus.classList.add(`logStatus`);
 }
-logStatus.addEventListener(click, logOut());
+
+// loginButton.addEventListener(`click`, logOut());
+
+loginButton.addEventListener(`click`, () => {
+  logStatus.classList.add(`logStatus`);
+  window.location.href = "login.html";
+});
