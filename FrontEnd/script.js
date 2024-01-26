@@ -122,7 +122,9 @@ loginButton.addEventListener(`click`, () => {
   logStatus.classList.add(`logStatus`);
   window.location.href = "login.html";
 });
+
 const logoutButton = document.querySelector(`.logOut`);
+
 logoutButton.addEventListener(`click`, () => {
   // logStatus.classList.add(`logOut`);
   logStatus.innerHTML = "login";
