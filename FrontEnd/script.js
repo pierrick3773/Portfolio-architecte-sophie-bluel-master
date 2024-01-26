@@ -125,7 +125,7 @@ loginButton.addEventListener(`click`, () => {
 
 const logoutButton = document.querySelector(`.logOut`);
 
-logoutButton.addEventListener(`click`, () => {
+logoutButton?.addEventListener(`click`, () => {
   // logStatus.classList.add(`logOut`);
   logStatus.innerHTML = "login";
   localStorage.removeItem("token");
