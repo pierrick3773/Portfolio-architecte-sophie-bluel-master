@@ -101,8 +101,7 @@ function EditMode() {
     logStatus.classList.add(`logOut`);
     const logoutButton = document.querySelector(`.logOut`);
     logoutButton.addEventListener(`click`, () => {
-      displayWorks();
-      window.location.href = "index.html";
+      logOut();
     });
   } else {
     logOut();
@@ -113,7 +112,7 @@ EditMode();
 function logOut() {
   logStatus.innerHTML = "login";
   localStorage.removeItem("token");
-  // window.location.href = "index.html";
+  window.location.href = "index.html";
   logStatus.classList.add(`logStatus`);
 }
 
