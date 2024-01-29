@@ -14,7 +14,8 @@
     <link rel="stylesheet" href="./assets/style.css" />
 
     <script src="./script.js" defer></script>
-    <!-- <script src="./login.js" defer></script> -->
+    <script src="./modale.js" defer></script>
+    <script src="./login.js" defer></script>
     <script
       src="https://kit.fontawesome.com/128c3f8990.js"
       crossorigin="anonymous"
@@ -65,9 +66,15 @@
           <h2>Mes Projets</h2>
           <div class="fa-lien">
             <i class="fa-solid fa-pen-to-square"></i>
-            <a href="modale post-delete">
+            <a href="#modale-post-delete" class="js-modale">
               <p class="mod">modifier</p>
             </a>
+            <aside id="modale-post-delete" class="modale" style="display: none">
+              <div class="modale-wrapper">
+                <p>Galerie photo</p>
+                <input type="submit" value="Ajouter une photo" />
+              </div>
+            </aside>
           </div>
         </section>
         <div class="buttonCat">

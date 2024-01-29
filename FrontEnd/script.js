@@ -132,3 +132,14 @@ logoutButton?.addEventListener(`click`, () => {
   window.location.href = "index.html";
   logStatus.classList.add(`logStatus`);
 });
+
+// // ouverture modale
+// const openModale = function (e) {
+//   e.preventdefault();
+//   const target = document.querySelector(e.target.getAttribute(`href`));
+//   target.style.display = null;
+// };
+
+// document.querySelectorAll(`.js-modal`).forEach((a) => {
+//   a.addEventListener(`click`, openModale);
+// });

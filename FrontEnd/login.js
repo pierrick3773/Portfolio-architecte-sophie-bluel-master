@@ -32,8 +32,8 @@ function logIn() {
 }
 
 document
-  .querySelector(`#logIn form`)
-  .addEventListener(`submit`, function (event) {
+  ?.querySelector(`#logIn form`)
+  ?.addEventListener(`submit`, function (event) {
     event.preventDefault();
     logIn();
   });
