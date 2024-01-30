@@ -1,10 +1,6 @@
-const openModale = function (e) {
-  e.preventDefault();
-  const target = document.querySelector(e.target.getAttribute(`href`));
-  console.log(target);
-  // target.style.display = null;
-};
+const modale = document.querySelector(`.mod`);
+const modalePostDelete = document.querySelector(`.modale-post-delete`);
 
-document.querySelectorAll(`.js-modale`).forEach((a) => {
-  a.addEventListener(`click`, openModale);
+modale.addEventListener(`click`, () => {
+  modalePostDelete.style.display = "flex";
 });
