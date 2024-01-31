@@ -424,10 +424,26 @@ footer nav ul {
   align-items: center;
 }
 .modale-wrapper {
+  padding: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: white;
   width: 550px;
   height: 570px;
+  border-radius: 10px;
+}
+#crossClose {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}
+.modale-wrapper p {
+  color: #000;
+  text-align: center;
+  font-family: "Work Sans";
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }

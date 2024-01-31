@@ -5,7 +5,7 @@ const API_BASE_URL = "http://localhost:5678/api";
 document.addEventListener("DOMContentLoaded", () => {
   getAll();
 });
-async function getAll() {
+export async function getAll() {
   const works = await fetch(`${API_BASE_URL}/works`)
     .then((Response) => Response.json())
     .then((data) => {
@@ -86,7 +86,7 @@ function displayFilter(works, categories) {
   }
 }
 // affichage mode edit
-token = localStorage.getItem("token");
+const token = localStorage.getItem("token");
 const editHeader = document.querySelector(`.edition`);
 const editLink = document.querySelector(`.fa-lien`);
 const logStatus = document.querySelector(`#log`);

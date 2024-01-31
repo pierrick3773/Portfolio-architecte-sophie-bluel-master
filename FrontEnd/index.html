@@ -13,9 +13,9 @@
     <meta name="description" content="" />
     <link rel="stylesheet" href="./assets/style.css" />
 
-    <script src="./script.js" defer></script>
-    <script src="./modale.js" defer></script>
-    <script src="./login.js" defer></script>
+    <script type="module" src="./script.js" defer></script>
+    <script type="module" src="./modale.js" defer></script>
+    <script type="module" src="./login.js" defer></script>
     <script
       src="https://kit.fontawesome.com/128c3f8990.js"
       crossorigin="anonymous"
@@ -69,7 +69,10 @@
             <p class="mod">modifier</p>
             <aside class="modale-post-delete">
               <div class="modale-wrapper">
+                <div class="cross-close"></div>
+                <i class="fa-solid fa-xmark" id="crossClose"></i>
                 <p>Galerie photo</p>
+                <div class="gallery-modale"></div>
                 <input type="submit" value="Ajouter une photo" />
               </div>
             </aside>
