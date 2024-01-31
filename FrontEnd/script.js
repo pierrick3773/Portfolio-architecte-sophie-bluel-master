@@ -90,7 +90,6 @@ token = localStorage.getItem("token");
 const editHeader = document.querySelector(`.edition`);
 const editLink = document.querySelector(`.fa-lien`);
 const logStatus = document.querySelector(`#log`);
-// const logoutButton = document.querySelector(`#log`);
 const loginButton = document.querySelector(`#log`);
 function EditMode() {
   if (token != null) {
@@ -99,10 +98,6 @@ function EditMode() {
     logStatus.innerHTML = "logout";
     logStatus.classList.remove(`logStatus`);
     logStatus.classList.add(`logOut`);
-    // const logoutButton = document.querySelector(`.logOut`);
-    // logoutButton.addEventListener(`click`, () => {
-    //   logOut();
-    // });
   } else {
     logOut();
   }
@@ -113,10 +108,7 @@ function logOut() {
   logStatus.classList.add(`logStatus`);
   logStatus.innerHTML = "login";
   localStorage.removeItem("token");
-  // window.location.href = "index.html";
 }
-
-// loginButton.addEventListener(`click`, logOut());
 
 loginButton.addEventListener(`click`, () => {
   logStatus.classList.add(`logStatus`);
@@ -126,20 +118,8 @@ loginButton.addEventListener(`click`, () => {
 const logoutButton = document.querySelector(`.logOut`);
 
 logoutButton?.addEventListener(`click`, () => {
-  // logStatus.classList.add(`logOut`);
   logStatus.innerHTML = "login";
   localStorage.removeItem("token");
   window.location.href = "index.html";
   logStatus.classList.add(`logStatus`);
 });
-
-// // ouverture modale
-// const openModale = function (e) {
-//   e.preventdefault();
-//   const target = document.querySelector(e.target.getAttribute(`href`));
-//   target.style.display = null;
-// };
-
-// document.querySelectorAll(`.js-modal`).forEach((a) => {
-//   a.addEventListener(`click`, openModale);
-// });
