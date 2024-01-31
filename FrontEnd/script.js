@@ -6,22 +6,19 @@ document.addEventListener("DOMContentLoaded", () => {
   getAll();
 });
 export async function getAll() {
-  const works = await fetch(`${API_BASE_URL}/works`)
-    .then((Response) => Response.json())
-    .then((data) => {
-      console.log(data);
-      return data;
-    });
-  const category = await fetch(`${API_BASE_URL}/categories`)
-    .then((Response) => Response.json())
-    .then((data) => {
-      console.log(data);
-      return data;
-    });
+  const worksResponse = await fetch(`${API_BASE_URL}/works`);
+  const works = await worksResponse.json();
+  console.log(works);
 
-  displayFilter(works, category);
+  const categoriesResponse = await fetch(`${API_BASE_URL}/categories`);
+  const categories = await categoriesResponse.json();
+  console.log(categories);
+  return { works, categories };
 }
-
+document.addEventListener("DOMContentLoaded", async () => {
+  const { works, categories } = await getAll();
+  displayFilter(works, categories);
+});
 function displayWorks(works) {
   const imageContainer = document.querySelector(`.gallery`);
   console.log(imageContainer);
