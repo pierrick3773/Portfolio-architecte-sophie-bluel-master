@@ -23,10 +23,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function displayWorksModale(works) {
     const imgContainer = document.querySelector(`.gallery-modale`);
+    imgContainer.innerHTML = ``;
     for (const work of works) {
       const imgDiv = document.createElement("figure");
       const imgElement = document.createElement("img");
+      const trash = document.createElement("i");
+      trash.classList.add("fa-solid", "fa-trash");
+      trash.setAttribute("id", "trash");
       imgElement.src = work.imageUrl;
+      imgDiv.appendChild(trash);
       imgContainer.appendChild(imgDiv);
       imgDiv.appendChild(imgElement);
     }
