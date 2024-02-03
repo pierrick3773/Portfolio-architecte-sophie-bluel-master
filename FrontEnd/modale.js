@@ -36,25 +36,30 @@ document.addEventListener("DOMContentLoaded", () => {
       imgDiv.appendChild(trash);
       imgContainer.appendChild(imgDiv);
       imgDiv.appendChild(imgElement);
-      // trash.addEventListener(`click`, deleteWork(work.id));
+      trash.addEventListener(`click`, () => {
+        console.log("tu clique sur la poubelle debile !");
+        deleteWork();
+      });
     }
   }
 });
 
-// async function deleteWork(id) {
-//   const token = localStorage.getItem("token");
+async function deleteWork(id) {
+  const token = localStorage.getItem("token");
 
-//   try {
-//     const response = await fetch(`${API_BASE_URL_LOG}/works/${id}`, {
-//       method: "DELETE",
-//       headers: {
-//         Accept: "application/json",
-//         Authorization: `Bearer ${token}`,
-//       },
-//     });
-//     console.log(response);
-//   } catch (error) {
-//     // Handle errors here
-//     console.error(error);
-//   }
-// }
+  try {
+    const response = await fetch(`${API_BASE_URL_LOG}/works/` + id, {
+      method: "DELETE",
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    console.log(response);
+    return response;
+  } catch (error) {
+    // Handle errors here
+    console.error(error);
+  }
+}
