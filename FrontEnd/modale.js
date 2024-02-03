@@ -46,18 +46,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
 async function deleteWork(id) {
   const token = localStorage.getItem("token");
+  const trash = document.querySelector(`.fa-trash`);
 
   try {
-    const response = await fetch(`${API_BASE_URL_LOG}/works/` + id, {
-      method: "DELETE",
-      headers: {
-        Accept: "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    if (trash.id) {
+      const response = await fetch(`${API_BASE_URL_LOG}/works/${trash.id}`, {
+        method: "DELETE",
+        headers: {
+          Accept: "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
-    console.log(response);
-    return response;
+      console.log(response);
+      return response;
+    }
   } catch (error) {
     // Handle errors here
     console.error(error);
