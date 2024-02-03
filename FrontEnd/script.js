@@ -34,10 +34,10 @@ function displayWorks(works) {
     categoryID.id = work.categoryId;
     console.log(`figcaption`);
     console.log(imageContainer);
-    imageContainer.appendChild(imgDiv);
-    imgDiv.appendChild(imgElement);
-    imgDiv.appendChild(imgCap);
-    imgDiv.appendChild(categoryID);
+    imageContainer?.appendChild(imgDiv);
+    imgDiv?.appendChild(imgElement);
+    imgDiv?.appendChild(imgCap);
+    imgDiv?.appendChild(categoryID);
   }
 }
 function displayFilter(works, categories) {
@@ -47,7 +47,7 @@ function displayFilter(works, categories) {
 
   let buttonTous = document.querySelector(`.selected`);
 
-  buttonTous.addEventListener(`click`, () => {
+  buttonTous?.addEventListener(`click`, () => {
     const galleryFilter = document.querySelector(`.gallery`);
     galleryFilter.innerHTML = ``;
     displayWorks(works);
@@ -63,7 +63,7 @@ function displayFilter(works, categories) {
     filterButton.id = category.id;
     filterButton.textContent = category.name;
     filterButton.className = `filter`;
-    buttonContainer.appendChild(filterButton);
+    buttonContainer?.appendChild(filterButton);
 
     filterButton.addEventListener(`click`, () => {
       const filteredArray = works.filter(

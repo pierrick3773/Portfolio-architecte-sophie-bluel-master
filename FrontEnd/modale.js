@@ -1,4 +1,5 @@
 import { getAll } from "./script.js";
+const API_BASE_URL_LOG = "http://localhost:5678/api";
 
 document.addEventListener("DOMContentLoaded", () => {
   const modale = document.querySelector(`.mod`);
@@ -12,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  modale.addEventListener(`click`, async () => {
+  modale?.addEventListener(`click`, async () => {
     modalePostDelete.style.display = "flex";
     console.log(crossClose);
     closeModale();
@@ -29,11 +30,31 @@ document.addEventListener("DOMContentLoaded", () => {
       const imgElement = document.createElement("img");
       const trash = document.createElement("i");
       trash.classList.add("fa-solid", "fa-trash");
-      trash.setAttribute("id", "trash");
+      trash.id = work.id;
+      imgElement.id = work.id;
       imgElement.src = work.imageUrl;
       imgDiv.appendChild(trash);
       imgContainer.appendChild(imgDiv);
       imgDiv.appendChild(imgElement);
+      // trash.addEventListener(`click`, deleteWork(work.id));
     }
   }
 });
+
+// async function deleteWork(id) {
+//   const token = localStorage.getItem("token");
+
+//   try {
+//     const response = await fetch(`${API_BASE_URL_LOG}/works/${id}`, {
+//       method: "DELETE",
+//       headers: {
+//         Accept: "application/json",
+//         Authorization: `Bearer ${token}`,
+//       },
+//     });
+//     console.log(response);
+//   } catch (error) {
+//     // Handle errors here
+//     console.error(error);
+//   }
+// }

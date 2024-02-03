@@ -328,6 +328,7 @@ footer nav ul {
   font-size: 1.2em;
   border: none;
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+  cursor: pointer;
 }
 
 #logIn label {
@@ -410,7 +411,7 @@ footer nav ul {
   font-weight: 400;
   line-height: normal;
 }
-.projet-modifier .fa-lien p {
+.projet-modifier .fa-lien .mod {
   cursor: pointer;
 }
 /* modales */
@@ -439,8 +440,8 @@ footer nav ul {
 }
 #crossClose {
   display: flex;
-  width: 100%;
   justify-content: flex-end;
+  cursor: pointer;
 }
 .modale-wrapper p {
   color: #000;
@@ -451,8 +452,24 @@ footer nav ul {
   font-weight: 400;
   line-height: normal;
   margin-bottom: 40px;
+  cursor: context-menu;
 }
-
+.modale-wrapper .cross-close {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.modale-wrapper button {
+  font-family: "Syne";
+  font-weight: 700;
+  color: white;
+  background-color: #1d6154;
+  margin: 2em auto;
+  width: 180px;
+  text-align: center;
+  border-radius: 60px;
+  cursor: pointer;
+}
 .gallery-modale {
   display: flex;
   width: 400px;
@@ -481,7 +498,7 @@ footer nav ul {
   z-index: 1;
 }
 
-#trash {
+.projet-modifier .gallery-modale figure .fa-solid {
   position: relative;
   width: 9px;
   height: 11px;
