@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
       imgDiv.appendChild(imgElement);
       trash.addEventListener(`click`, () => {
         console.log("tu clique sur la poubelle debile !");
-        deleteWork();
+        deleteWork(work.id);
       });
     }
   }
@@ -46,18 +46,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
 async function deleteWork(id) {
   const token = localStorage.getItem("token");
-  const trash = document.querySelector(`.fa-trash`);
 
   try {
-    if (trash.id) {
-      const response = await fetch(`${API_BASE_URL_LOG}/works/${trash.id}`, {
-        method: "DELETE",
-        headers: {
-          Accept: "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      });
-    }
+    const response = await fetch(`${API_BASE_URL_LOG}/works/${id}`, {
+      method: "DELETE",
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
   } catch (error) {
     // Handle errors here
     console.error(error);
