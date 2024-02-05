@@ -57,9 +57,6 @@ async function deleteWork(id) {
           Authorization: `Bearer ${token}`,
         },
       });
-
-      console.log(response);
-      return response;
     }
   } catch (error) {
     // Handle errors here
