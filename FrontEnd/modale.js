@@ -7,7 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const crossClose = document.querySelector(`#crossClose`);
   const buttonAjouter = document.querySelector(`.ajouter`);
   const modalePost = document.querySelector(`.modale-post`);
-  crossClose.addEventListener(`click`, () => {
+  const inputFile = document.querySelector(`buttonAjouter`);
+  crossClose?.addEventListener(`click`, () => {
     closeModale();
     console.log("click cross");
   });
@@ -50,11 +51,20 @@ document.addEventListener("DOMContentLoaded", () => {
     modaleDelete.style.display = "none";
     modalePost.style.display = "flex";
     // closeModale();
+    inputFile?.addEventListener(`click`, async () => {
+      console.log("input");
+    });
+  });
+  inputFile?.addEventListener(`click`, async () => {
+    console.log("input");
   });
   arrowReturn?.addEventListener(`click`, async () => {
     modaleDelete.style.display = "flex";
     modalePost.style.display = "none";
     // closeModale();
+  });
+  inputFile?.addEventListener(`click`, async () => {
+    console.log("input");
   });
 });
 
@@ -74,6 +84,11 @@ async function deleteWork(id) {
     console.error(error);
   }
 }
+const inputFile = document.querySelector(`buttonAjouter`);
+inputFile?.addEventListener(`click`, async () => {
+  console.log("input");
+});
+
 // const buttonAjouter = document.querySelector(`.ajouter`);
 // const modalePost = document.querySelector(`.modale-post`);
 // const modaleDelete = document.querySelector(`.modale-delete`);
