@@ -3,20 +3,24 @@ const API_BASE_URL_LOG = "http://localhost:5678/api";
 
 document.addEventListener("DOMContentLoaded", () => {
   const modale = document.querySelector(`.mod`);
-  const modalePostDelete = document.querySelector(`.modale-post-delete`);
+  const modaleDelete = document.querySelector(`.modale-delete`);
   const crossClose = document.querySelector(`#crossClose`);
-
+  const buttonAjouter = document.querySelector(`.ajouter`);
+  const modalePost = document.querySelector(`.modale-post`);
+  crossClose.addEventListener(`click`, () => {
+    closeModale();
+    console.log("click cross");
+  });
   function closeModale() {
+    modaleDelete.style.display = "none";
+    modalePost.style.display = "none";
     console.log(crossClose);
-    crossClose.addEventListener(`click`, () => {
-      modalePostDelete.style.display = "none";
-    });
   }
 
   modale?.addEventListener(`click`, async () => {
-    modalePostDelete.style.display = "flex";
+    modaleDelete.style.display = "flex";
     console.log(crossClose);
-    closeModale();
+    // closeModale();
     const { works } = await getAll();
     console.log(works);
     displayWorksModale(works);
@@ -42,6 +46,16 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
   }
+  buttonAjouter?.addEventListener(`click`, async () => {
+    modaleDelete.style.display = "none";
+    modalePost.style.display = "flex";
+    // closeModale();
+  });
+  arrowReturn?.addEventListener(`click`, async () => {
+    modaleDelete.style.display = "flex";
+    modalePost.style.display = "none";
+    // closeModale();
+  });
 });
 
 async function deleteWork(id) {
@@ -60,3 +74,16 @@ async function deleteWork(id) {
     console.error(error);
   }
 }
+// const buttonAjouter = document.querySelector(`.ajouter`);
+// const modalePost = document.querySelector(`.modale-post`);
+// const modaleDelete = document.querySelector(`.modale-delete`);
+// const arrowReturn = document.querySelector(`#arrowReturn`);
+// const crossClose = document.querySelector(`#crossClose`);
+// buttonAjouter?.addEventListener(`click`, async () => {
+//   modaleDelete.style.display = "none";
+//   modalePost.style.display = "flex";
+// });
+// arrowReturn?.addEventListener(`click`, async () => {
+//   modaleDelete.style.display = "flex";
+//   modalePost.style.display = "none";
+// });

@@ -416,7 +416,7 @@ footer nav ul {
 }
 /* modales */
 
-.modale-post-delete {
+.modale-delete {
   display: none;
   position: fixed;
   width: 100%;
@@ -512,4 +512,68 @@ footer nav ul {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+}
+
+.modale-post {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgb(0, 0, 0, 0.8);
+
+  justify-content: center;
+  align-items: center;
+}
+.modale-post .modale-wrapper form {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  gap: 15px;
+}
+
+.modale-post .modale-wrapper .file {
+  display: flex;
+  flex-direction: column;
+  background-color: aliceblue;
+  align-items: center;
+  width: 80%;
+  margin-bottom: 30px;
+}
+.modale-post .modale-wrapper .file .fa-regular {
+  color: #b9c5cc;
+  font-size: 76px;
+  padding-top: 20px;
+  padding-bottom: 15px;
+}
+.modale-post .modale-wrapper .file input {
+  padding-bottom: 10px;
+}
+
+.modale-post .modale-wrapper form input {
+  height: 40px;
+
+  font-size: 1.2em;
+  border: none;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+.modale-post .modale-wrapper form select {
+  height: 40px;
+
+  font-size: 1.2em;
+  border: none;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+.modale-post .modale-wrapper .cross-close-arrow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+.modale-post .modale-wrapper .file p {
+  font-size: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 0px;
 }

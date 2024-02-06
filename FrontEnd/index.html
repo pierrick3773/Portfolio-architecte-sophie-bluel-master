@@ -67,14 +67,48 @@
           <div class="fa-lien">
             <i class="fa-solid fa-pen-to-square"></i>
             <p class="mod">modifier</p>
-            <aside class="modale-post-delete">
+            <aside class="modale-delete">
               <div class="modale-wrapper">
                 <div class="cross-close">
                   <i class="fa-solid fa-xmark" id="crossClose"></i>
                 </div>
                 <p>Galerie photo</p>
                 <div class="gallery-modale"></div>
-                <button>Ajouter une photo</button>
+                <button class="ajouter">Ajouter une photo</button>
+              </div>
+            </aside>
+            <aside class="modale-post">
+              <div class="modale-wrapper">
+                <div class="cross-close-arrow">
+                  <i class="fa-solid fa-arrow-left" id="arrowReturn"></i>
+                  <i class="fa-solid fa-xmark" id="crossClose"></i>
+                </div>
+                <p>Ajout photo</p>
+                <div class="file">
+                  <i class="fa-regular fa-image"></i>
+                  <input
+                    type="file"
+                    id="newWork"
+                    name="work"
+                    accept="image/png, image/jpeg"
+                  />
+                  <p>jpg, png : 4mo max</p>
+                </div>
+                <form action="#" method="post">
+                  <label for="title">Titre</label>
+                  <input type="text" name="title" id="title" />
+                  <label for="category">Categorie</label>
+                  <select name="category" id="category">
+                    <option value=""></option>
+                    <option value="object">Objets</option>
+                    <option value="appartement">Appartements</option>
+                    <option value="hotels-restaurants">
+                      Hotels & restaurants
+                    </option>
+                  </select>
+
+                  <input type="submit" value="Valider" />
+                </form>
               </div>
             </aside>
           </div>
