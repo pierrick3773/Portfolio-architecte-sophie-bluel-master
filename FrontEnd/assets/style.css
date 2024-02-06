@@ -438,7 +438,13 @@ footer nav ul {
   height: 570px;
   border-radius: 10px;
 }
-#crossClose {
+.modale-wrapper .cross-close i {
+  display: flex;
+  justify-content: flex-end;
+  cursor: pointer;
+  font-size: 21px;
+}
+.cross-close-arrow i {
   display: flex;
   justify-content: flex-end;
   cursor: pointer;
@@ -594,7 +600,7 @@ footer nav ul {
   font-family: "Work Sans";
   font-size: 14px;
 }
-.modale-post .modale-wrapper .file #newWork {
+.modale-post .modale-wrapper .file #new_Work {
   display: none;
 }
 .modale-post .modale-wrapper .file .buttonAjouter {

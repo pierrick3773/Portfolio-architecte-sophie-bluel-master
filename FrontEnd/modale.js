@@ -4,19 +4,27 @@ const API_BASE_URL_LOG = "http://localhost:5678/api";
 document.addEventListener("DOMContentLoaded", () => {
   const modale = document.querySelector(`.mod`);
   const modaleDelete = document.querySelector(`.modale-delete`);
-  const crossClose = document.querySelector(`#crossClose`);
+  const crossClose = document.querySelector(`.crossClose`);
   const buttonAjouter = document.querySelector(`.ajouter`);
   const modalePost = document.querySelector(`.modale-post`);
-  const inputFile = document.querySelector(`buttonAjouter`);
-  crossClose?.addEventListener(`click`, () => {
-    closeModale();
-    console.log("click cross");
+
+  const inputFile = document.querySelector(`.buttonAjouter`);
+  inputFile.addEventListener(`click`, () => {
+    const newWorkButton = document.getElementById("new_Work");
+    newWorkButton.click();
   });
-  function closeModale() {
+
+  crossClose?.addEventListener(`click`, () => {
     modaleDelete.style.display = "none";
     modalePost.style.display = "none";
-    console.log(crossClose);
-  }
+    console.log("click cross");
+  });
+
+  // function closeModale() {
+  //   modaleDelete.style.display = "none";
+  //   modalePost.style.display = "none";
+  //   console.log(crossClose);
+  // }
 
   modale?.addEventListener(`click`, async () => {
     modaleDelete.style.display = "flex";
@@ -30,6 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function displayWorksModale(works) {
     const imgContainer = document.querySelector(`.gallery-modale`);
     imgContainer.innerHTML = ``;
+
     for (const work of works) {
       const imgDiv = document.createElement("figure");
       const imgElement = document.createElement("img");
@@ -47,24 +56,17 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
   }
+
   buttonAjouter?.addEventListener(`click`, async () => {
     modaleDelete.style.display = "none";
     modalePost.style.display = "flex";
     // closeModale();
-    inputFile?.addEventListener(`click`, async () => {
-      console.log("input");
-    });
   });
-  inputFile?.addEventListener(`click`, async () => {
-    console.log("input");
-  });
+
   arrowReturn?.addEventListener(`click`, async () => {
     modaleDelete.style.display = "flex";
     modalePost.style.display = "none";
     // closeModale();
-  });
-  inputFile?.addEventListener(`click`, async () => {
-    console.log("input");
   });
 });
 
@@ -84,10 +86,6 @@ async function deleteWork(id) {
     console.error(error);
   }
 }
-const inputFile = document.querySelector(`buttonAjouter`);
-inputFile?.addEventListener(`click`, async () => {
-  console.log("input");
-});
 
 // const buttonAjouter = document.querySelector(`.ajouter`);
 // const modalePost = document.querySelector(`.modale-post`);
