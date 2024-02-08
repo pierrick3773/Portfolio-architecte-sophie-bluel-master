@@ -4,7 +4,7 @@ const API_BASE_URL_LOG = "http://localhost:5678/api";
 document.addEventListener("DOMContentLoaded", () => {
   const modale = document.querySelector(`.mod`);
   const modaleDelete = document.querySelector(`.modale-delete`);
-  const crossClose = document.querySelector(`.crossClose`);
+  const crossClose = document.querySelectorAll(`.crossClose`);
   const buttonAjouter = document.querySelector(`.ajouter`);
   const modalePost = document.querySelector(`.modale-post`);
 
@@ -14,11 +14,13 @@ document.addEventListener("DOMContentLoaded", () => {
     newWorkButton.click();
   });
 
-  crossClose?.addEventListener(`click`, () => {
-    modaleDelete.style.display = "none";
-    modalePost.style.display = "none";
-    console.log("click cross");
-  });
+  crossClose.forEach((cross) =>
+    cross.addEventListener(`click`, () => {
+      modaleDelete.style.display = "none";
+      modalePost.style.display = "none";
+      console.log("click cross");
+    })
+  );
 
   // function closeModale() {
   //   modaleDelete.style.display = "none";
