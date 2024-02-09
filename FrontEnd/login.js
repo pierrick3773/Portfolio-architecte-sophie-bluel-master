@@ -1,6 +1,6 @@
 console.log("hello world");
-const API_BASE_URL_LOG = "http://localhost:5678/api";
-console.log(API_BASE_URL_LOG);
+const API_BASE_URL_ = "http://localhost:5678/api";
+console.log(API_BASE_URL_);
 
 function logIn() {
   let email = document.querySelector(`#email`).value;
@@ -11,7 +11,7 @@ function logIn() {
     email: email,
     password: password,
   };
-  fetch(`${API_BASE_URL_LOG}/users/login`, {
+  fetch(`${API_BASE_URL_}/users/login`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),

@@ -1,6 +1,6 @@
 import { displayFilter, getAll } from "./script.js";
 
-const API_BASE_URL_LOG = "http://localhost:5678/api";
+const API_BASE_URL = "http://localhost:5678/api";
 
 document.addEventListener("DOMContentLoaded", () => {
   const modale = document.querySelector(`.mod`);
@@ -78,7 +78,7 @@ async function deleteWork(id) {
   const token = localStorage.getItem("token");
 
   try {
-    const response = await fetch(`${API_BASE_URL_LOG}/works/${id}`, {
+    const response = await fetch(`${API_BASE_URL}/works/${id}`, {
       method: "DELETE",
       headers: {
         Accept: "application/json",
@@ -122,9 +122,10 @@ async function postWorks(event) {
   formData.append(`title`, addTitle);
   formData.append(`imageUrl`, addImage);
   formData.append(`categoryId`, addCategory);
-  console.log(formData);
+  console.log([...formData.entries()]);
+  console.log(formData.get("title"));
   try {
-    await fetch(`${API_BASE_URL_LOG}/works`, {
+    await fetch(`${API_BASE_URL}/works`, {
       method: "POST",
       headers: { Accept: "application/json", Authorization: `Bearer ${token}` },
       body: formData,
