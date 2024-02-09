@@ -77,6 +77,7 @@
                 <button class="ajouter">Ajouter une photo</button>
               </div>
             </aside>
+            <form action="#" method="post">
             <aside class="modale-post">
               <div class="modale-wrapper">
                 <div class="cross-close-arrow">
@@ -95,7 +96,7 @@
                   />
                   <p>jpg, png : 4mo max</p>
                 </div>
-                <form action="#" method="post">
+                
                   <div class="title">
                     <label for="title">Titre</label>
                     <input type="text" name="title" id="title" />
@@ -103,17 +104,17 @@
                   <div class="category">
                     <label for="category">Categorie</label>
                     <select name="category" id="category">
-                      <option value=""></option>
-                      <option value="object">Objets</option>
-                      <option value="appartement">Appartements</option>
-                      <option value="hotels-restaurants">
-                        Hotels & restaurants
+                      <option value="vide" label=""></option>
+                      <option value="1" label="Objets"></option>
+                      <option value="2" label="Appartements"></option>
+                      <option value="3" label="Hotels & restaurants">
+                        
                       </option>
                     </select>
                   </div>
 
-                  <input type="submit" value="Valider" />
-                </form>
+                  <input type="submit" value="Valider" class="buttonValider" />
+            </form>
               </div>
             </aside>
           </div>

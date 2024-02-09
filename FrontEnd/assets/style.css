@@ -565,14 +565,14 @@ footer nav ul {
   padding-bottom: 10px;
 }
 
-.modale-post .modale-wrapper form input {
+form .modale-post .modale-wrapper input {
   height: 30px;
   margin: 0px;
   font-size: 1.2em;
   border: none;
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
-.modale-post .modale-wrapper form select {
+form .modale-post .modale-wrapper select {
   height: 40px;
 
   font-size: 1.2em;
@@ -596,7 +596,7 @@ footer nav ul {
   margin-bottom: 0px;
   padding-top: 5px;
 }
-.modale-post .modale-wrapper form label {
+form .modale-post .modale-wrapper label {
   font-family: "Work Sans";
   font-size: 14px;
 }
@@ -612,22 +612,23 @@ footer nav ul {
   height: 40px;
   margin: 0px;
 }
-.modale-post .modale-wrapper form #title {
+form .modale-post .modale-wrapper #title {
   width: 100%;
 }
-.modale-post .modale-wrapper form #category {
+form .modale-post .modale-wrapper #category {
   width: 100%;
 }
-.modale-post .modale-wrapper form .category {
+form .modale-post .modale-wrapper .category {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 80%;
   gap: 15px;
   padding-bottom: 50px;
 }
-.modale-post .modale-wrapper form .title {
+form .modale-post .modale-wrapper .title {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 80%;
   gap: 15px;
+  padding-bottom: 15px;
 }

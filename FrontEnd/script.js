@@ -40,7 +40,7 @@ function displayWorks(works) {
     imgDiv?.appendChild(categoryID);
   }
 }
-function displayFilter(works, categories) {
+export function displayFilter(works, categories) {
   displayWorks(works);
   const buttonContainer = document.querySelector(`.buttonCat`);
   console.log(buttonContainer);

@@ -1,4 +1,5 @@
-import { getAll } from "./script.js";
+import { displayFilter, getAll } from "./script.js";
+
 const API_BASE_URL_LOG = "http://localhost:5678/api";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -12,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
   inputFile.addEventListener(`click`, () => {
     const newWorkButton = document.getElementById("new_Work");
     newWorkButton.click();
+    event.preventDefault();
   });
 
   crossClose.forEach((cross) =>
@@ -102,3 +104,34 @@ async function deleteWork(id) {
 //   modaleDelete.style.display = "flex";
 //   modalePost.style.display = "none";
 // });
+const submit = document.querySelector(`.buttonValider`);
+async function postWorks(event) {
+  event.preventDefault();
+
+  const token = localStorage.getItem("token");
+  console.log(token);
+
+  const addImage = document.querySelector(`#new_Work`).files[0];
+  console.log(addImage);
+  const addTitle = document.querySelector(`#title`).value;
+  console.log(addTitle);
+  const addCategory = document.querySelector(`#category`).value;
+  console.log(addCategory);
+
+  const formData = new FormData();
+  formData.append(`title`, addTitle);
+  formData.append(`imageUrl`, addImage);
+  formData.append(`categoryId`, addCategory);
+  console.log(formData);
+  try {
+    await fetch(`${API_BASE_URL_LOG}/works`, {
+      method: "POST",
+      headers: { Accept: "application/json", Authorization: `Bearer ${token}` },
+      body: formData,
+    });
+  } catch {}
+
+  await displayFilter;
+}
+
+submit.addEventListener(`click`, postWorks);
