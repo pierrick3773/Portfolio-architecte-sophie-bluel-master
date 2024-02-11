@@ -105,6 +105,29 @@ async function deleteWork(id) {
 //   modalePost.style.display = "none";
 // });
 const submit = document.querySelector(`.buttonValider`);
+const newWorkButton = document.getElementById("new_Work");
+const imgPreview = document.getElementById("img-preview");
+const logoImg = document.getElementById("logoImg");
+const buttonAjouter = document.querySelector(".buttonAjouter");
+const strinJpg = document.querySelector(".stringJpg");
+await newWorkButton.addEventListener("change", function () {
+  getImgData();
+});
+function getImgData() {
+  const files = newWorkButton.files[0];
+  if (files) {
+    const fileReader = new FileReader();
+    fileReader.readAsDataURL(files);
+    console.log(fileReader);
+    fileReader.addEventListener("load", function () {
+      strinJpg.style.display = "none";
+      buttonAjouter.style.display = "none";
+      logoImg.style.display = "none";
+      imgPreview.style.display = "block";
+      imgPreview.innerHTML = '<img src="' + this.result + '" />';
+    });
+  }
+}
 async function postWorks(event) {
   event.preventDefault();
 
@@ -131,23 +154,6 @@ async function postWorks(event) {
       headers: { Accept: "application/json", Authorization: `Bearer ${token}` },
       body: formData,
     });
-    const newWorkButton = document.getElementById("new_Work");
-    const imgPreview = document.getElementById("img-preview");
-    await newWorkButton.addEventListener("change", function () {
-      getImgData();
-    });
-    function getImgData() {
-      const files = new_work.file[0];
-      if (files) {
-        const fileReader = new FileReader();
-        fileReader.readAsDataURL(files);
-        console.log(fileReader);
-        fileReader.addEventListener("load", function () {
-          imgPreview.style.display = "block";
-          imgPreview.innerHTML = '<img src="' + this.result + '" />';
-        });
-      }
-    }
   } catch {}
 
   await displayFilter;

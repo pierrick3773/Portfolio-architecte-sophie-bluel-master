@@ -635,7 +635,6 @@ form .modale-post .modale-wrapper .title {
 .file #img-preview {
   display: none;
   width: 155px;
-  border: 2px dashed #333;
   margin-bottom: 20px;
 }
 .file #img-preview img {
