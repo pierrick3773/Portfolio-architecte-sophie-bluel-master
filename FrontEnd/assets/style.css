@@ -632,3 +632,14 @@ form .modale-post .modale-wrapper .title {
   gap: 15px;
   padding-bottom: 15px;
 }
+.file #img-preview {
+  display: none;
+  width: 155px;
+  border: 2px dashed #333;
+  margin-bottom: 20px;
+}
+.file #img-preview img {
+  width: 100%;
+  height: auto;
+  display: block;
+}

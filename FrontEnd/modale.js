@@ -120,16 +120,34 @@ async function postWorks(event) {
 
   const formData = new FormData();
   formData.append(`title`, addTitle);
-  formData.append(`imageUrl`, addImage);
-  formData.append(`categoryId`, addCategory);
+  formData.append(`image`, addImage);
+  formData.append(`category`, addCategory);
   console.log([...formData.entries()]);
   console.log(formData.get("title"));
+  console.log(formData.get("image"));
   try {
     await fetch(`${API_BASE_URL}/works`, {
       method: "POST",
       headers: { Accept: "application/json", Authorization: `Bearer ${token}` },
       body: formData,
     });
+    const newWorkButton = document.getElementById("new_Work");
+    const imgPreview = document.getElementById("img-preview");
+    await newWorkButton.addEventListener("change", function () {
+      getImgData();
+    });
+    function getImgData() {
+      const files = new_work.file[0];
+      if (files) {
+        const fileReader = new FileReader();
+        fileReader.readAsDataURL(files);
+        console.log(fileReader);
+        fileReader.addEventListener("load", function () {
+          imgPreview.style.display = "block";
+          imgPreview.innerHTML = '<img src="' + this.result + '" />';
+        });
+      }
+    }
   } catch {}
 
   await displayFilter;
