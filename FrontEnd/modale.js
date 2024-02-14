@@ -109,7 +109,7 @@ const newWorkButton = document.getElementById("new_Work");
 const imgPreview = document.getElementById("img-preview");
 const logoImg = document.getElementById("logoImg");
 const buttonAjouter = document.querySelector(".buttonAjouter");
-const strinJpg = document.querySelector(".stringJpg");
+const stringJpg = document.querySelector(".stringJpg");
 await newWorkButton.addEventListener("change", function () {
   getImgData();
 });
@@ -120,7 +120,7 @@ function getImgData() {
     fileReader.readAsDataURL(files);
     console.log(fileReader);
     fileReader.addEventListener("load", function () {
-      strinJpg.style.display = "none";
+      stringJpg.style.display = "none";
       buttonAjouter.style.display = "none";
       logoImg.style.display = "none";
       imgPreview.style.display = "block";
@@ -140,7 +140,10 @@ async function postWorks(event) {
   console.log(addTitle);
   const addCategory = document.querySelector(`#category`).value;
   console.log(addCategory);
-
+  // if (document.postForm.value != "") {
+  //
+  //   submit;
+  // }
   const formData = new FormData();
   formData.append(`title`, addTitle);
   formData.append(`image`, addImage);
