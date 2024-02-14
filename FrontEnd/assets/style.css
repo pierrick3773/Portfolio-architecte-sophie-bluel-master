@@ -256,7 +256,7 @@ input[type="submit"] {
   text-align: center;
   border-radius: 60px;
 }
-input[type="submit"]:disabled {
+form:invalid .buttonValider {
   background-color: gray;
 }
 footer nav ul {
