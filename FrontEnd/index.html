@@ -77,46 +77,48 @@
                 <button class="ajouter">Ajouter une photo</button>
               </div>
             </aside>
-            <form action="#" method="post" name="postForm">
             <aside class="modale-post">
-              <div class="modale-wrapper">
-                <div class="cross-close-arrow">
-                  <i class="fa-solid fa-arrow-left" id="arrowReturn"></i>
-                  <i class="fa-solid fa-xmark crossClose"></i>
-                </div>
-                <p>Ajout photo</p>
-                <div class="file">
-                  <i class="fa-regular fa-image" id="logoImg"></i>
-                  <div id="img-preview"></div>
-                  <button class="buttonAjouter">+ Ajouter photo</button>
-                  <input
-                    type="file"
-                    id="new_Work"
-                    name="work"
-                    accept="image/png, image/jpeg"
-                  />
-                  <p class="stringJpg">jpg, png : 4mo max</p>
-                </div>
-                
+              <form action="#" method="post" name="postForm">
+                <div class="modale-wrapper">
+                  <div class="cross-close-arrow">
+                    <i class="fa-solid fa-arrow-left" id="arrowReturn"></i>
+                    <i class="fa-solid fa-xmark crossClose"></i>
+                  </div>
+                  <p>Ajout photo</p>
+                  <div class="file">
+                    <i class="fa-regular fa-image" id="logoImg"></i>
+                    <div id="img-preview"></div>
+                    <button class="buttonAjouter">+ Ajouter photo</button>
+                    <input
+                      type="file"
+                      id="new_Work"
+                      name="work"
+                      accept="image/png, image/jpeg"
+                      required
+                    />
+                    <p class="stringJpg">jpg, png : 4mo max</p>
+                  </div>
+
                   <div class="title">
                     <label for="title">Titre</label>
-                    <input type="text" name="title" id="title" required/>
+                    <input type="text" name="title" id="title" required />
                   </div>
                   <div class="category">
                     <label for="category">Categorie</label>
                     <select name="category" id="category" required>
-                      <option value="vide" label=""></option>
+                      <option
+                        value="vide"
+                        label="choisissez votre categorie"
+                      ></option>
                       <option value="1" label="Objets"></option>
                       <option value="2" label="Appartements"></option>
-                      <option value="3" label="Hotels & restaurants">
-                        
-                      </option>
+                      <option value="3" label="Hotels & restaurants"></option>
                     </select>
                   </div>
-                  
+
                   <input type="submit" value="Valider" class="buttonValider" />
-            </form>
-              </div>
+                </div>
+              </form>
             </aside>
           </div>
         </section>

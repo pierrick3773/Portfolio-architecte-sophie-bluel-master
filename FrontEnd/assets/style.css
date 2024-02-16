@@ -258,6 +258,7 @@ input[type="submit"] {
 }
 form:invalid .buttonValider {
   background-color: gray;
+  pointer-events: none;
 }
 footer nav ul {
   display: flex;
@@ -542,7 +543,7 @@ footer nav ul {
   justify-content: center;
   align-items: center;
 }
-.modale-post .modale-wrapper form {
+.modale-post form {
   display: flex;
   flex-direction: column;
   width: 80%;
@@ -550,7 +551,7 @@ footer nav ul {
   align-items: center;
 }
 
-.modale-post .modale-wrapper .file {
+.modale-post .file {
   display: flex;
   flex-direction: column;
   background-color: aliceblue;
@@ -558,55 +559,55 @@ footer nav ul {
   width: 80%;
   margin-bottom: 30px;
 }
-.modale-post .modale-wrapper .file .fa-regular {
+.modale-post .file .fa-regular {
   color: #b9c5cc;
   font-size: 76px;
   padding-top: 20px;
   padding-bottom: 15px;
 }
-.modale-post .modale-wrapper .file input {
+.modale-post .file input {
   padding-bottom: 10px;
 }
 
-form .modale-post .modale-wrapper input {
+.modale-post form input {
   height: 30px;
   margin: 0px;
   font-size: 1.2em;
   border: none;
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
-form .modale-post .modale-wrapper select {
+.modale-post form select {
   height: 40px;
 
   font-size: 1.2em;
   border: none;
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
-.modale-post .modale-wrapper .cross-close-arrow {
+.modale-post .cross-close-arrow {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
   padding-bottom: 15px;
 }
-.modale-post .modale-wrapper .cross-close-arrow #arrowReturn {
+.modale-post .cross-close-arrow #arrowReturn {
   font-size: 21px;
   cursor: pointer;
 }
-.modale-post .modale-wrapper .file p {
+.modale-post .file p {
   font-size: 10px;
   padding-bottom: 10px;
   margin-bottom: 0px;
   padding-top: 5px;
 }
-form .modale-post .modale-wrapper label {
+.modale-post form label {
   font-family: "Work Sans";
   font-size: 14px;
 }
-.modale-post .modale-wrapper .file #new_Work {
+.modale-post .file #new_Work {
   display: none;
 }
-.modale-post .modale-wrapper .file .buttonAjouter {
+.modale-post .file .buttonAjouter {
   background-color: #cbd6dc;
   color: #306685;
   font-family: "Work Sans";
@@ -615,13 +616,13 @@ form .modale-post .modale-wrapper label {
   height: 40px;
   margin: 0px;
 }
-form .modale-post .modale-wrapper #title {
+.modale-post form #title {
   width: 100%;
 }
-form .modale-post .modale-wrapper #category {
+.modale-post form #category {
   width: 100%;
 }
-form .modale-post .modale-wrapper .category {
+.modale-post form .category {
   display: flex;
   flex-direction: column;
   width: 80%;
@@ -631,7 +632,7 @@ form .modale-post .modale-wrapper .category {
   border-color: #b3b3b3;
   margin-bottom: 20px;
 }
-form .modale-post .modale-wrapper .title {
+.modale-post form .title {
   display: flex;
   flex-direction: column;
   width: 80%;
