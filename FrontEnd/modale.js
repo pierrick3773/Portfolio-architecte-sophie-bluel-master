@@ -24,16 +24,10 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   );
 
-  // function closeModale() {
-  //   modaleDelete.style.display = "none";
-  //   modalePost.style.display = "none";
-  //   console.log(crossClose);
-  // }
-
   modale?.addEventListener(`click`, async () => {
     modaleDelete.style.display = "flex";
     console.log(crossClose);
-    // closeModale();
+
     const { works } = await getAll();
     console.log(works);
     displayWorksModale(works);
@@ -64,13 +58,11 @@ document.addEventListener("DOMContentLoaded", () => {
   buttonAjouter?.addEventListener(`click`, async () => {
     modaleDelete.style.display = "none";
     modalePost.style.display = "flex";
-    // closeModale();
   });
 
   arrowReturn?.addEventListener(`click`, async () => {
     modaleDelete.style.display = "flex";
     modalePost.style.display = "none";
-    // closeModale();
   });
 });
 
@@ -91,19 +83,6 @@ async function deleteWork(id) {
   }
 }
 
-// const buttonAjouter = document.querySelector(`.ajouter`);
-// const modalePost = document.querySelector(`.modale-post`);
-// const modaleDelete = document.querySelector(`.modale-delete`);
-// const arrowReturn = document.querySelector(`#arrowReturn`);
-// const crossClose = document.querySelector(`#crossClose`);
-// buttonAjouter?.addEventListener(`click`, async () => {
-//   modaleDelete.style.display = "none";
-//   modalePost.style.display = "flex";
-// });
-// arrowReturn?.addEventListener(`click`, async () => {
-//   modaleDelete.style.display = "flex";
-//   modalePost.style.display = "none";
-// });
 const submit = document.querySelector(`.buttonValider`);
 const newWorkButton = document.getElementById("new_Work");
 const imgPreview = document.getElementById("img-preview");
@@ -140,10 +119,7 @@ async function postWorks(event) {
   console.log(addTitle);
   const addCategory = document.querySelector(`#category`).value;
   console.log(addCategory);
-  // if (document.postForm.value != "") {
-  //
-  //   submit;
-  // }
+
   const formData = new FormData();
   formData.append(`title`, addTitle);
   formData.append(`image`, addImage);
