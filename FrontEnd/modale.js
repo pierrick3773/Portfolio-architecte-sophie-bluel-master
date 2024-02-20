@@ -2,6 +2,7 @@ import { displayFilter, getAll } from "./script.js";
 
 const API_BASE_URL = "http://localhost:5678/api";
 
+// affichage modale delete plus fonctionnement croix et fleche retour
 document.addEventListener("DOMContentLoaded", () => {
   const modale = document.querySelector(`.mod`);
   const modaleDelete = document.querySelector(`.modale-delete`);
@@ -37,6 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const imgContainer = document.querySelector(`.gallery-modale`);
     imgContainer.innerHTML = ``;
 
+    // affichage poubelle dynamique avec id = id image
     for (const work of works) {
       const imgDiv = document.createElement("figure");
       const imgElement = document.createElement("img");
@@ -69,6 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
 async function deleteWork(id) {
   const token = localStorage.getItem("token");
 
+  // Fetch delete
   try {
     const response = await fetch(`${API_BASE_URL}/works/${id}`, {
       method: "DELETE",
@@ -83,6 +86,7 @@ async function deleteWork(id) {
   }
 }
 
+// affichage miniature image modale post
 const submit = document.querySelector(`.buttonValider`);
 const newWorkButton = document.getElementById("new_Work");
 const imgPreview = document.getElementById("img-preview");
@@ -92,6 +96,7 @@ const stringJpg = document.querySelector(".stringJpg");
 await newWorkButton.addEventListener("change", function () {
   getImgData();
 });
+
 function getImgData() {
   const files = newWorkButton.files[0];
   if (files) {
@@ -107,6 +112,8 @@ function getImgData() {
     });
   }
 }
+
+// modale post nouveu projet
 async function postWorks(event) {
   event.preventDefault();
 
@@ -130,7 +137,10 @@ async function postWorks(event) {
   try {
     await fetch(`${API_BASE_URL}/works`, {
       method: "POST",
-      headers: { Accept: "application/json", Authorization: `Bearer ${token}` },
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${token}`,
+      },
       body: formData,
     });
   } catch {}
