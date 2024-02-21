@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const imgContainer = document.querySelector(`.gallery-modale`);
     imgContainer.innerHTML = ``;
 
-    // affichage poubelle dynamique avec id = id image
+    // affichage poubelle dynamique avec id = id image et des projets
     for (const work of works) {
       const imgDiv = document.createElement("figure");
       const imgElement = document.createElement("img");
