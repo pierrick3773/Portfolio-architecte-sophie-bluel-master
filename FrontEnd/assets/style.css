@@ -174,7 +174,10 @@ nav li {
   font-size: 1.2em;
   cursor: pointer;
 }
-
+nav li a {
+  text-decoration: none;
+  color: #000;
+}
 li:hover {
   color: #b1663c;
 }
@@ -210,6 +213,7 @@ li:hover {
   grid-template-columns: 1fr 1fr 1fr;
   grid-column-gap: 20px;
   grid-row-gap: 20px;
+  padding-top: 50px;
 }
 
 .gallery img {
@@ -270,8 +274,6 @@ footer nav ul {
   display: flex;
   justify-content: center;
   gap: 10px;
-  padding-bottom: 50px;
-  padding-top: 50px;
 }
 
 .buttonCat button {
@@ -384,6 +386,7 @@ footer nav ul {
   justify-content: center;
   align-items: center;
   margin: 0px;
+  padding-bottom: 50px;
 }
 
 .projet-modifier h2 {

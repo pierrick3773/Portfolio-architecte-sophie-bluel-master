@@ -37,3 +37,4 @@ document
     event.preventDefault();
     logIn();
   });
+console.log("dom recharger");

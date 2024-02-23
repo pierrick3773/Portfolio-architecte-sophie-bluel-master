@@ -1,4 +1,4 @@
-import { displayFilter, getAll } from "./script.js";
+import { displayFilter, getAll, displayWorks } from "./script.js";
 
 const API_BASE_URL = "http://localhost:5678/api";
 
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
       imgContainer.appendChild(imgDiv);
       imgDiv.appendChild(imgElement);
       trash.addEventListener(`click`, () => {
-        console.log("tu clique sur la poubelle debile !");
+        console.log("tu clique sur la poubelle!");
         deleteWork(work.id);
       });
     }
@@ -69,6 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 async function deleteWork(id) {
+  event.preventDefault();
   const token = localStorage.getItem("token");
 
   // Fetch delete
@@ -80,6 +81,11 @@ async function deleteWork(id) {
         Authorization: `Bearer ${token}`,
       },
     });
+    if (response.ok) {
+      document.getElementById(id).parentNode.remove();
+      const { works, categories } = await getAll();
+      displayWorks(works);
+    }
   } catch (error) {
     // Handle errors here
     console.error(error);
@@ -93,7 +99,7 @@ const imgPreview = document.getElementById("img-preview");
 const logoImg = document.getElementById("logoImg");
 const buttonAjouter = document.querySelector(".buttonAjouter");
 const stringJpg = document.querySelector(".stringJpg");
-await newWorkButton.addEventListener("change", function () {
+newWorkButton.addEventListener("change", function () {
   getImgData();
 });
 
@@ -135,7 +141,7 @@ async function postWorks(event) {
   console.log(formData.get("title"));
   console.log(formData.get("image"));
   try {
-    await fetch(`${API_BASE_URL}/works`, {
+    const response = await fetch(`${API_BASE_URL}/works`, {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -143,9 +149,14 @@ async function postWorks(event) {
       },
       body: formData,
     });
+    if (response.ok) {
+      const { works, categories } = await getAll();
+      displayWorks(works);
+    }
   } catch {}
 
-  await displayFilter;
+  displayFilter;
 }
 
 submit.addEventListener(`click`, postWorks);
+console.log("dom recharger");

@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const { works, categories } = await getAll();
   displayFilter(works, categories);
 });
-function displayWorks(works) {
+export function displayWorks(works) {
   const imageContainer = document.querySelector(`.gallery`);
   console.log(imageContainer);
   // affichage des projets
@@ -88,10 +88,12 @@ const editHeader = document.querySelector(`.edition`);
 const editLink = document.querySelector(`.fa-lien`);
 const logStatus = document.querySelector(`#log`);
 const loginButton = document.querySelector(`#log`);
+const filters = document.querySelector(`.buttonCat`);
 function EditMode() {
   if (token != null) {
     editHeader.style.display = "flex";
     editLink.style.display = "flex";
+    filters.style.display = "none";
     logStatus.innerHTML = "logout";
     logStatus.classList.remove(`logStatus`);
     logStatus.classList.add(`logOut`);
@@ -120,3 +122,4 @@ logoutButton?.addEventListener(`click`, () => {
   window.location.href = "index.html";
   logStatus.classList.add(`logStatus`);
 });
+console.log("dom recharger");
