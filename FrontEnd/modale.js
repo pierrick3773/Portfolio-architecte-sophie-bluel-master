@@ -157,7 +157,6 @@ async function postWorks(event) {
     console.error("Une erreur s'est produite:", error);
   }
 
-  // Clear input fields after submission
   document.querySelector(`#new_Work`).value = ""; // Réinitialiser le champ de fichier
   document.querySelector(`#title`).value = ""; // Réinitialiser le champ de titre
   document.querySelector(`#category`).value = ""; // Réinitialiser le champ de catégorie
