@@ -153,10 +153,20 @@ async function postWorks(event) {
       const { works, categories } = await getAll();
       displayWorks(works);
     }
-  } catch {}
+  } catch (error) {
+    console.error("Une erreur s'est produite:", error);
+  }
 
-  displayFilter;
+  // Clear input fields after submission
+  document.querySelector(`#new_Work`).value = ""; // Réinitialiser le champ de fichier
+  document.querySelector(`#title`).value = ""; // Réinitialiser le champ de titre
+  document.querySelector(`#category`).value = ""; // Réinitialiser le champ de catégorie
+  document.getElementById("img-preview").innerHTML = ""; // Effacer la prévisualisation de l'image
+  document.querySelector(".stringJpg").style.display = "block";
+  document.querySelector(".buttonAjouter").style.display = "block";
+  document.getElementById("logoImg").style.display = "block"; // Afficher à nouveau le message d'ajout d'image
 }
 
 submit.addEventListener(`click`, postWorks);
-console.log("dom recharger");
+
+console.log("DOM rechargé");

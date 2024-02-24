@@ -2,7 +2,7 @@ console.log("hello world");
 const API_BASE_URL_ = "http://localhost:5678/api";
 console.log(API_BASE_URL_);
 
-function logIn() {
+async function logIn() {
   let email = document.querySelector(`#email`).value;
   let password = document.querySelector(`#password`).value;
   console.log(email);
@@ -11,24 +11,23 @@ function logIn() {
     email: email,
     password: password,
   };
-  fetch(`${API_BASE_URL_}/users/login`, {
+  const responseToken = await fetch(`${API_BASE_URL_}/users/login`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
-  })
-    .then((responseToken) => {
-      console.log("responseToken: ", responseToken);
-      if (responseToken.ok != true) {
-        alert("email ou mot de passe incorrect");
-      } else {
-        window.location.href = "index.html";
-      }
-      return responseToken.json();
-    })
-    .then((dataResponse) => {
-      console.log("dataResponse: ", dataResponse);
-      localStorage.setItem("token", dataResponse.token);
-    });
+  });
+
+  console.log("responseToken: ", responseToken);
+  if (responseToken.ok != true) {
+    alert("email ou mot de passe incorrect");
+    return;
+  }
+
+  const dataResponse = await responseToken.json();
+
+  console.log("dataResponse: ", dataResponse);
+  localStorage.setItem("token", dataResponse.token);
+  window.location.href = "index.html";
 }
 
 document
@@ -37,4 +36,3 @@ document
     event.preventDefault();
     logIn();
   });
-console.log("dom recharger");
