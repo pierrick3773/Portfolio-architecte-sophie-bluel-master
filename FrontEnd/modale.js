@@ -164,6 +164,9 @@ async function postWorks(event) {
   document.querySelector(".stringJpg").style.display = "block";
   document.querySelector(".buttonAjouter").style.display = "block";
   document.getElementById("logoImg").style.display = "block"; // Afficher à nouveau le message d'ajout d'image
+  // Fermer les modales
+  document.querySelector(`.modale-delete`).style.display = "none";
+  document.querySelector(`.modale-post`).style.display = "none";
 }
 
 submit.addEventListener(`click`, postWorks);
