@@ -82,6 +82,8 @@ async function deleteWork(id) {
       },
     });
     if (response.ok) {
+      const gal = document.getElementsByClassName("gallery")[0];
+      gal.innerHTML = "";
       document.getElementById(id).parentNode.remove();
       const { works, categories } = await getAll();
       displayWorks(works);
@@ -150,6 +152,8 @@ async function postWorks(event) {
       body: formData,
     });
     if (response.ok) {
+      const gal = document.getElementsByClassName("gallery")[0];
+      gal.innerHTML = "";
       const { works, categories } = await getAll();
       displayWorks(works);
     }
